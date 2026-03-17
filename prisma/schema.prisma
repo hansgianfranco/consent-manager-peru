@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Consent {
+  id        String   @id @default(cuid())
+  ip        String?
+  userAgent String?
+  status    String
+  createdAt DateTime @default(now())
+}

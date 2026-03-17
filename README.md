@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Consent Manager Peru
 
-## Getting Started
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Next.js](https://img.shields.io/badge/Next.js-16.1.7-black?logo=next.js)
+![Prisma](https://img.shields.io/badge/Prisma-7.5.0-blue?logo=prisma)
+![Node.js](https://img.shields.io/badge/Node.js-20.19.37-green?logo=node.js)
+![SQLite](https://img.shields.io/badge/SQLite-3-lightgrey?logo=sqlite)
 
-First, run the development server:
+Sistema ligero para gestionar el consentimiento de datos personales en sitios web, alineado con la normativa peruana (Ley 29733).
+
+## 🚀 Descripción
+
+Este proyecto permite a cualquier sitio web:
+
+* Mostrar un banner de consentimiento de datos
+* Registrar la aceptación o rechazo del usuario
+* Mantener un historial auditable
+* Gestionar los registros desde un panel administrativo
+
+## ✨ Funcionalidades
+
+* Banner de consentimiento (aceptar / rechazar)
+* Registro de IP, user agent y fecha
+* Panel admin con listado de consentimientos
+* Integración sencilla en cualquier web
+
+## 🛠️ Tecnologías
+
+* [Next.js](https://nextjs.org/)
+* [Prisma ORM](https://www.prisma.io/)
+* Base de datos SQLite
+* API Routes (Next.js)
+
+## 📦 Instalación
 
 ```bash
+git clone https://github.com/hansgianfranco/consent-manager-pe.git
+cd consent-manager-pe
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Uso
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Ejecutar el proyecto (npm run dev)
+2. Integrar el componente de consentimiento en tu web
+3. Revisar los registros en el panel admin (/admin/consents)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Estructura del proyecto
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+    .
+    ├── app
+    │   ├── api/
+    │   │   ├── consents  # API pública para registrar consentimientos
+    │   │   └── admin/consents  # API protegida para listar consentimientos
+    │   └── admin/
+    │       └──Page.tsx      # Panel administrativo
+    ├── components/
+    │   └── ConsentForm.tsx    # Componente para mostrar banner de consentimiento
+    └── prisma/
+        └── schema.prisma      # Modelo de datos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 👨‍💻 Autor
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Franco Caballero
