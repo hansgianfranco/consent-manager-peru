@@ -2,14 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-
-interface Consent {
-  id: string;
-  status: string;
-  ip?: string;
-  userAgent?: string;
-  createdAt: string;
-}
+import { Consent } from "@prisma/client";
+import { exportConsentCSV, exportConsentPDF } from "@/utils/export";
+import { FileSpreadsheetIcon, FileTextIcon, HomeIcon } from "lucide-react";
 
 export default function AdminPage() {
   const [consents, setConsents] = useState<Consent[]>([]);
@@ -38,25 +33,38 @@ export default function AdminPage() {
       </div>
     );
 
-  // Resumen estadístico
   const total = consents.length;
   const accepted = consents.filter(c => c.status === "accepted").length;
   const rejected = total - accepted;
 
   return (
     <main className="min-h-screen bg-gray-900 p-6 md:p-10 text-gray-100">
-      {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
         <h1 className="text-3xl font-bold mb-4 md:mb-0">Admin Dashboard - Consentimientos</h1>
-        <button
-          onClick={goHome}
-          className="px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
-        >
-          Volver a Home
-        </button>
+        <div className="flex gap-3 flex-wrap">
+          <button
+            onClick={goHome}
+            className="flex items-center gap-2 px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+          >
+            <HomeIcon className="w-5 h-5" />
+          </button>
+          <button
+            onClick={() => exportConsentPDF(consents)}
+            className="flex items-center gap-2 px-5 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition"
+          >
+            <FileTextIcon className="w-5 h-5" />
+            Exportar PDF
+          </button>
+          <button
+            onClick={() => exportConsentCSV(consents)}
+            className="flex items-center gap-2 px-5 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition"
+          >
+            <FileSpreadsheetIcon className="w-5 h-5" />
+            Exportar CSV
+          </button>
+        </div>
       </div>
 
-      {/* Cards de Resumen */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
         <div className="bg-gray-800 shadow rounded-lg p-6 flex flex-col items-center">
           <p className="text-gray-400 text-sm">Total</p>
@@ -72,7 +80,6 @@ export default function AdminPage() {
         </div>
       </div>
 
-      {/* Tabla */}
       <div className="overflow-x-auto shadow-lg rounded-lg bg-gray-800">
         <table className="min-w-full divide-y divide-gray-700">
           <thead className="bg-gray-700">
@@ -90,9 +97,8 @@ export default function AdminPage() {
                 <td className="px-4 py-2 text-sm text-gray-200">{c.id.slice(0, 8)}...</td>
                 <td className="px-4 py-2 text-sm font-semibold">
                   <span
-                    className={`px-2 py-1 rounded-full text-xs font-medium ${
-                      c.status === "accepted" ? "bg-green-900 text-green-400" : "bg-red-900 text-red-400"
-                    }`}
+                    className={`px-2 py-1 rounded-full text-xs font-medium ${c.status === "accepted" ? "bg-green-900 text-green-400" : "bg-red-900 text-red-400"
+                      }`}
                   >
                     {c.status}
                   </span>
