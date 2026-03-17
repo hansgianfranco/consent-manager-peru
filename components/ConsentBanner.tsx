@@ -51,7 +51,7 @@ export default function ConsentBanner({ onAccept }: ConsentBannerProps) {
   return (
     <div className="fixed inset-x-4 bottom-6 z-50 flex justify-center animate-slideUp">
       <div className="bg-white/95 backdrop-blur-md shadow-2xl rounded-3xl border border-gray-200 p-6 md:p-8 max-w-3xl w-full flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-        
+
         <div className="flex-1 space-y-2 text-center md:text-left">
           <h3 className="text-lg md:text-xl font-bold text-gray-900">
             Consentimiento de Datos

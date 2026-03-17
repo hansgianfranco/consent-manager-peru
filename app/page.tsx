@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import ConsentBanner from "@/components/ConsentBanner";
 import { useRouter } from "next/navigation";
+import { LayoutDashboardIcon } from "lucide-react";
 
 export default function Home() {
   const [showConsent, setShowConsent] = useState(false);
@@ -36,12 +37,15 @@ export default function Home() {
           Simula el registro de consentimientos en un entorno seguro y visual.
         </p>
 
-        <button
-          onClick={goToAdmin}
-          className="mt-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
-        >
-          Ir al Admin
-        </button>
+        <div className="flex justify-center">
+          <button
+            onClick={goToAdmin}
+            className="mt-4 flex items-center gap-2 px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+          >
+            <LayoutDashboardIcon className="w-5 h-5" />
+            Ir al Admin
+          </button>
+        </div>
       </section>
 
       <section className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
