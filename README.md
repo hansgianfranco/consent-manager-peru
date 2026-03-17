@@ -1,4 +1,4 @@
-# Consent Manager Peru
+# Consent Manager Peru 🇵🇪
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Next.js](https://img.shields.io/badge/Next.js-16.1.7-black?logo=next.js)
@@ -26,29 +26,53 @@ Este proyecto permite a cualquier sitio web:
 
 ## 🛠️ Tecnologías
 
-* [Next.js](https://nextjs.org/)
-* [Prisma ORM](https://www.prisma.io/)
+* Next.js
+* Prisma ORM
 * Base de datos SQLite
-* API Routes (Next.js)
+* API Routes
 
 ## 📦 Instalación
 
 ```bash
-git clone https://github.com/hansgianfranco/consent-manager-pe.git
-cd consent-manager-pe
+git clone https://github.com/hansgianfranco/consent-manager-peru
+cd consent-manager-peru
 npm install
+```
+
+### 🔧 Configuración de variables de entorno
+
+Crea un archivo `.env` en la raíz del proyecto:
+
+```bash
+ADMIN_KEY=tu_clave_admin_segura
+DATABASE_URL="file:./dev.db"
+```
+
+> `ADMIN_KEY` se usa para acceder al panel admin.
+> `DATABASE_URL` apunta a tu base de datos SQLite local (Prisma).
+
+### 🛠️ Inicializar Prisma
+
+Genera el cliente de Prisma y aplica las migraciones:
+
+```bash
+npx prisma generate
+npx prisma migrate dev
+```
+
+### 🚀 Ejecutar proyecto
+
+```bash
 npm run dev
 ```
 
 ## ⚙️ Uso
 
-1. Ejecutar el proyecto (npm run dev)
-2. Integrar el componente de consentimiento en tu web
-3. Revisar los registros en el panel admin (/admin/consents)
+1. Ejecutar el proyecto con `npm run dev`.
+2. Integrar el componente de consentimiento (`ConsentForm`) en tu web.
+3. Revisar los registros en el panel admin: `http://localhost:3000/admin/consents`.
 
 ## 📂 Estructura del proyecto
-
-
     .
     ├── app
     │   ├── api/
@@ -64,3 +88,11 @@ npm run dev
 ## 👨‍💻 Autor
 
 Franco Caballero
+
+## 📄 Licencia
+
+MIT
+
+## 🔗 Repositorio
+
+[[https://github.com/hansgianfranco/consent-manager-peru](https://github.com/hansgianfranco/consent-manager-peru)
