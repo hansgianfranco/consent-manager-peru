@@ -6,32 +6,35 @@
 ![Node.js](https://img.shields.io/badge/Node.js-20.19.37-green?logo=node.js)
 ![SQLite](https://img.shields.io/badge/SQLite-3-lightgrey?logo=sqlite)
 
-Sistema ligero para gestionar el consentimiento de datos personales en sitios web, alineado con la normativa peruana (Ley 29733).
+Aplicación web para gestionar y registrar los **consentimientos de usuarios** según la **Ley N° 29733 – Ley de Protección de Datos Personales (Perú)**.
 
-## 🚀 Descripción
-
-Este proyecto permite a cualquier sitio web:
-
-* Mostrar un banner de consentimiento de datos
-* Registrar la aceptación o rechazo del usuario
-* Mantener un historial auditable
-* Gestionar los registros desde un panel administrativo
+Permite simular el registro de consentimientos en un entorno seguro, con funcionalidades de **administración, exportación y análisis de datos**.
 
 ## ✨ Funcionalidades
 
-* Banner de consentimiento (aceptar / rechazar)
-* Registro de IP, user agent y fecha
-* Panel admin con listado de consentimientos
-* Integración sencilla en cualquier web
+### Usuario
+- Mostrar banner o modal de consentimiento según la Ley N° 29733.
+- Doble check de aceptación para cumplir con la normativa.
+- Persistencia del consentimiento mediante cookies.
+
+### Administrador
+- Dashboard con todos los consentimientos registrados.
+- Tabla con ID, estado, IP, User Agent y fecha de registro.
+- Filtro y visualización responsive.
+- Estadísticas rápidas: total, aceptados y rechazados.
+
+### Exportación
+- Exportar **PDF** brandeado con tu app y copyright.
+- Exportar **CSV** para análisis o integración con otras herramientas.
 
 ## 🛠️ Tecnologías
-
-* Next.js
-* Prisma ORM
-* Base de datos SQLite
-* API Routes
-
-## 📦 Instalación
+- **Next.js 13** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **jsPDF + jspdf-autotable** para exportación PDF
+- **js-cookie** para manejo de consentimientos
+- **API Routes** para gestión de consentimientos
+- Opcional: **Prisma + SQLite/PostgreSQL** para almacenamiento real
 
 ```bash
 git clone https://github.com/hansgianfranco/consent-manager-peru
